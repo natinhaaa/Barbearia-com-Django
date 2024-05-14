@@ -2,10 +2,25 @@
 {% load static %}
 
 {% block title %}
-    HOTEL SENAI
+HOTEL SENAI
 {% endblock %}
 
 {% block body %}
-    <h1>Hotel Senai</h1>
-    <img src="{% static 'img/senai_logo.png' %}" alt="logo">
+
+<ul>
+    {% for item in dados_hotel %}
+    <!-- banco de dados só salva a url, nao a imagem -->
+    <div class="card" style="width: 18rem;">
+        <img src="{{item.logo.url}}" alt="quarto">
+        <div class="card-body">
+            <h5 class="card-title">Quarto Casal</h5>
+            <p class="card-text">Cama confortável de algodão, um banheiro médio com banheira, chuveiro elétrico,
+                frigobar, televisão com todos os canais.</p>
+            <a href="#" class="btn btn-dark">Reservar</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</ul>
+
 {% endblock %}
