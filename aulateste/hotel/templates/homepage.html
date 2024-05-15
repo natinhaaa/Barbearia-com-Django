@@ -2,25 +2,27 @@
 {% load static %}
 
 {% block title %}
-HOTEL SENAI
+Hotel Senai
 {% endblock %}
 
 {% block body %}
 
-<ul>
-    {% for item in dados_hotel %}
-    <!-- banco de dados só salva a url, nao a imagem -->
-    <div class="card" style="width: 18rem;">
-        <img src="{{item.logo.url}}" alt="quarto">
-        <div class="card-body">
-            <h5 class="card-title">Quarto Casal</h5>
-            <p class="card-text">Cama confortável de algodão, um banheiro médio com banheira, chuveiro elétrico,
-                frigobar, televisão com todos os canais.</p>
-            <a href="#" class="btn btn-dark">Reservar</a>
+<div class="container-fluid main">
+    <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active background a"></div>
         </div>
     </div>
 
-    {% endfor %}
-</ul>
+    <div class="covertext">
+        <div class="col-lg-10" style="float:none; margin:0 auto;">
+            <h1 class="title">HOTEL NATINHAAA</h1>
+            <h3 class="subtitle">Seu conforto em primeiro lugar!</h3>
+        </div>
+        <div class="col-xs-12 explore">
+            <a href="http://127.0.0.1:8000/reserve"><button type="button" class="btn btn-lg explorebtn">RESERVE JÁ</button></a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
