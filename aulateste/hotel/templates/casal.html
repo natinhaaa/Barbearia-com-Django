@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+SOLTEIRO
+{% endblock %}
+{% block body %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-4" style="text-decoration: none; color: inherit;">
+            <div class="card" style="height: 540px; width: 600px; margin: 20px; padding: 10px">
+                <div style="display: flex; justify-content: center;">
+                    <a href="#">
+                        <img src="{{ dados_quarto.1.foto_quarto.url }}" style="width: 500px; height: 300px; " alt="foto_quarto">
+                    </a>
+                    
+                </div>               
+                <div class="card-body">
+                    <a href="#" style="color: inherit; text-decoration-line: none;">
+                        <h5 class="card-title">{{ dados_quarto.1.tipo }}</h5>
+                        <p class="card-text">{{ dados_quarto.1.descricao }}</p>
+                        <p class="card-text">R$ {{ dados_quarto.1.valor }}</p>
+                        <p class="card-text">Disponibilidade: {{ dados_quarto.1.disponibilidade }}</p>
+                    </a>
+
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

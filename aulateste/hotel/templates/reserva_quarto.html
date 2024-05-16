@@ -4,23 +4,30 @@
 {% block title %}
 Reserve Já
 {% endblock %}
-
 {% block body %}
 <div class="container mt-4">
     <div class="row">
         {% for item in dados_quarto %}	
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4" style="text-decoration: none; color: inherit;">
             <div class="card" style="height: 540px; width: 600px; margin: 20px; padding: 10px">
                 <div style="display: flex; justify-content: center;">
-                    <img src="{{ item.Foto_Quarto.url }}" style="width: 500px; height: 300px; " alt="logo">
+                    <a href="#">
+                        <img src="{{ item.foto_quarto.url }}" style="width: 500px; height: 300px; " alt="foto_quarto">
+                    </a>
+                    
                 </div>               
                 <div class="card-body">
-                    <h5 class="card-title">{{ item.tipo }}</h5>
-                    <p class="card-text">{{ item.descricao }}</p>
-                    <p class="card-text">Disponibilidade: {{ item.disponibilidade }}</p>
-                    <p class="card-text">R$ {{ item.valor }}</p>
+                    <a href="#" style="color: inherit; text-decoration-line: none;">
+                        <h5 class="card-title">{{ item.tipo }}</h5>
+                        <p class="card-text">{{ item.descricao }}</p>
+                        <p class="card-text">R$ {{ item.valor }}</p>
+                        <p class="card-text">Disponibilidade: {{ item.disponibilidade }}</p>
+                    </a>
+
+                    
                 </div>
             </div>
+            
         </div>
         {% endfor %}
     </div>

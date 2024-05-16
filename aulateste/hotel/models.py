@@ -1,5 +1,4 @@
 from django.db import models
-import datetime
 
 # Create your models here.
 
@@ -24,7 +23,14 @@ class quarto(models.Model):
     valor = models.FloatField(max_length=4)
     descricao = models.TextField(max_length=200)
     foto_quarto = models.ImageField(upload_to="Foto_Quarto/")
-    # data_reserva = models.DateTimeField(default=datetime.datetime.now)
 
     def __str__(self):
         return self.tipo
+    
+class usuario(models.Model):
+    nome = models.CharField(max_length=20)
+    email = models.EmailField(max_length=20)
+    senha = models.CharField(max_length=20)
+
+    def __str__ (self):
+        return self.nome

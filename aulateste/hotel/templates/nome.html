@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    HOTEL - NOME
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <form action="nome" method="post" class="mt-5 p-4 border rounded-lg">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_nome" class="form-label">Nome:</label>
+                        {{ form.nome }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label">Email:</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_senha" class="form-label">Senha:</label>
+                        {{ form.senha }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
