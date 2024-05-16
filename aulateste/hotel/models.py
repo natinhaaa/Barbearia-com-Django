@@ -19,9 +19,10 @@ class hotel(models.Model):
 
 class quarto(models.Model):
     tipo = models.CharField(max_length=15, choices=TIPOS_QUARTOS)
+    nome = models.CharField(max_length=20)
     disponibilidade= models.IntegerField()
     valor = models.FloatField(max_length=4)
-    descricao = models.TextField(max_length=200)
+    descricao = models.TextField(max_length=230)
     foto_quarto = models.ImageField(upload_to="Foto_Quarto/")
 
     def __str__(self):
