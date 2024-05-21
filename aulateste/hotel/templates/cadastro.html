@@ -48,15 +48,23 @@ Cadastro
             <div class="col-lg-6"> 
                 <h3 style="text-align: center;">Cadastre-se</h3>
                 <div class="bg-dark p-4 border rounded">
-                    <form action="nome" method="post">
+                    <form action="cadastro" method="post">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="id_nome">Nome:</label>
-                            {{ form.nome }}
+                            {{ form.first_name }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_sobrenome">Sobrenome:</label>
+                            {{ form.last_name }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_user">Usuário:</label>
+                            {{ form.user }} 
                         </div>
                         <div class="mb-3">
                             <label for="id_email">E-mail:</label>
-                            {{ form.email }} 
+                            {{ form.email }}
                         </div>
                         <div class="mb-3">
                             <label for="id_senha">Senha:</label>

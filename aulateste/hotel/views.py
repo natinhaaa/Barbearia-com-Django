@@ -3,8 +3,9 @@ from .models import hotel
 from .models import quarto
 from .models import usuario
 from .models import reserva
-from .forms import FormNome
 from .forms import FormReserva
+from .forms import FormCadastro
+
 
 
 # Create your views here.
@@ -52,25 +53,28 @@ def quartos_luxo(request):
     context['dados_quarto'] = dados_quarto
     return render(request, 'luxo.html', context)
 
-def nome(request):
+def cadastro(request):
     if request.method == "POST":
-        form = FormNome(request.POST)
+        form = FormCadastro(request.POST)
         if form.is_valid():
-            var_nome = form.cleaned_data['nome']
+            var_first_name = form.cleaned_data['first_name']
+            var_last_name = form.cleaned_data['last_name']
+            var_user = form.cleaned_data['user']
             var_email = form.cleaned_data['email']
             var_senha = form.cleaned_data['senha']
-
-            user = usuario(nome=var_nome, email=var_email, senha= var_senha)
+        
+            user = usuario.objects.create_user(username=var_user, email=var_email, senha=var_senha)
+            user.first_name = var_first_name
+            user.last_name = var_last_name
             user.save()
-
-            print(var_email, var_nome, var_senha)
-
-            return HttpResponse("<h1>Você foi cadastrado.</h1>")
+            
+            return HttpResponse("<h1>Cadastrado com sucesso!</h1>")
 
     else:
-        form = FormNome()
+        form = FormCadastro()
 
-    return render(request, "nome.html", {"form": form})
+    return render(request, "cadastro.html", {"form": form})
+
 
 def reservar(request):
     if request.method == "POST":
@@ -91,11 +95,3 @@ def reservar(request):
         form = FormReserva()
 
     return render(request, "reservar.html", {"form": form})
-
-# def cadastro(request):
-#     if request.method == "POST":
-#         return (True)
-
-# def login(request):
-#     if request.method == "POST":
-#         return (True)
