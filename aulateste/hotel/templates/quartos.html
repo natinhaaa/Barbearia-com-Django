@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Reserve Já
+{% endblock %}
+
+{% block body %}
+<div class="container col-md-9">
+    <div class="row" style="justify-content: center;">
+        <h1 class="mt-4">Quartos no Hotel Natinha!</h1>
+        <div class="col-md-8 mb-4">
+            <div class="card" style="height: 400px; width: 600px; margin: 20px; padding: 10px">
+                <div style="display: flex; justify-content: center;">
+                    <a href="solteiro">
+                        <img src="{{ dados_quarto.0.foto_quarto.url }}" style="width: 500px; height: 300px; " alt="logo">
+                    </a>
+                </div>               
+                <div class="card-body">
+                    <a href="solteiro" style="color: inherit; text-decoration-line: none; text-align: center;">
+                        <h5 class="card-title">{{ dados_quarto.0.tipo }}</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="card" style="height: 400px; width: 600px; margin: 20px; padding: 10px">
+                <div style="display: flex; justify-content: center;">
+                    <a href="casal">
+                        <img src="{{ dados_quarto.1.foto_quarto.url }}" style="width: 500px; height: 300px; " alt="logo">
+                    </a>
+                </div>               
+                <div class="card-body">
+                    <a href="casal" style="color: inherit; text-decoration-line: none; text-align: center;">
+                        <h5 class="card-title">{{ dados_quarto.1.tipo }}</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="card" style="height: 400px; width: 600px; margin: 20px; padding: 10px">
+                <div style="display: flex; justify-content: center;">
+                    <a href="comfort">
+                        <img src="{{ dados_quarto.2.foto_quarto.url }}" style="width: 500px; height: 300px; " alt="logo">
+                    </a>
+                </div>               
+                <div class="card-body">
+                    <a href="comfort" style="color: inherit; text-decoration-line: none; text-align: center;">
+                        <h5 class="card-title">{{ dados_quarto.2.tipo }}</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="card" style="height: 400px; width: 600px; margin: 20px; padding: 10px">
+                <div style="display: flex; justify-content: center;">
+                    <a href="luxo">
+                        <img src="{{ dados_quarto.3.foto_quarto.url }}" style="width: 500px; height: 300px; " alt="logo">
+                    </a>
+                </div>               
+                <div class="card-body">
+                    <a href="luxo" style="color: inherit; text-decoration-line: none; text-align: center;">
+                        <h5 class="card-title">{{ dados_quarto.3.tipo }}</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

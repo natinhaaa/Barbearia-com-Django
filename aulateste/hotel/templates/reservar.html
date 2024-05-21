@@ -1,20 +1,17 @@
 {% extends 'index.html' %}
 
 {% block title %}
-Cadastro
+Reservar Quarto
 {% endblock %}
 
 {% block head %}
     <style>
-
-        .container {
-            margin-bottom: 60px;
-        }
-
         /* Estilos personalizados para os inputs */
         input[type="text"],
         input[type="email"],
-        input[type="password"] {
+        input[type="password"],
+        input[type="number"],
+        input[type="date"] {
             width: 100%;
             padding: 10px;
             margin-top: 6px;
@@ -29,7 +26,7 @@ Cadastro
             padding: 10px;
             border: none;
             border-radius: 4px;
-            background-color: #ff9d00;
+            background-color: #007bff;
             color: white;
             cursor: pointer;
         }
@@ -44,25 +41,33 @@ Cadastro
 
 {% block body %}
     <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-6"> 
-                <h3 style="text-align: center;">Cadastre-se</h3>
-                <div class="bg-dark p-4 border rounded">
-                    <form action="nome" method="post">
+        <div class="row justify-content-center mt-5 mb-5">
+            <div class="col-lg-6">
+                <div class="bg-dark p-3 border rounded-lg">
+                    <h2 class="text-center text-white">Faça sua Reserva</h2>
+                    <form action="reserva" method="post">
                         {% csrf_token %}
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="id_nome">Nome:</label>
                             {{ form.nome }}
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="id_email">E-mail:</label>
                             {{ form.email }} 
                         </div>
-                        <div class="mb-3">
-                            <label for="id_senha">Senha:</label>
-                            {{ form.senha }}
+                        <div class="mb-2">
+                            <label for="id_idade">Idade:</label>
+                            {{ form.idade }}
                         </div>
-                        <button type="submit">Cadastrar</button>
+                        <div class="mb-2">
+                            <label for="id_data">Data:</label>
+                            {{ form.data }}
+                        </div>
+                        <div class="mb-2">
+                            <label for="id_quarto">Quarto:</label>
+                            {{ form.quarto }}
+                        </div>
+                        <button type="submit" class="mt-4">Reservar</button>
                     </form>
                 </div>
             </div>
