@@ -14,4 +14,8 @@ class FormCadastro(forms.Form):
     last_name = forms.CharField(label="Sobrenome:", max_length=20)
     user = forms.CharField(label="Usuário:", max_length=20)
     email = forms.EmailField(label="E-mail:", max_length=100)
-    senha = forms.CharField(label="Senha:", widget=forms.PasswordInput)
+    password = forms.CharField(label="Senha:", widget=forms.PasswordInput)
+
+class FormLogin(forms.Form):
+    user = forms.CharField(label="Usuário:", max_length=20)
+    password = forms.CharField(label="Senha:", widget=forms.PasswordInput)

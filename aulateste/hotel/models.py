@@ -28,14 +28,6 @@ class quarto(models.Model):
 
     def __str__(self):
         return self.tipo
-    
-class usuario(models.Model):
-    nome = models.CharField(max_length=20)
-    email = models.EmailField(max_length=20)
-    senha = models.CharField(max_length=20)
-
-    def __str__ (self):
-        return self.nome
 
 class reserva(models.Model):
     nome = models.CharField(max_length=30)

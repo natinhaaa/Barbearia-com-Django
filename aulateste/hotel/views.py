@@ -1,10 +1,12 @@
 from django.shortcuts import render, HttpResponse
 from .models import hotel
 from .models import quarto
-from .models import usuario
 from .models import reserva
 from .forms import FormReserva
 from .forms import FormCadastro
+from .forms import FormLogin
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 
 
@@ -53,7 +55,7 @@ def quartos_luxo(request):
     context['dados_quarto'] = dados_quarto
     return render(request, 'luxo.html', context)
 
-def cadastro(request):
+def cadastro_user(request):
     if request.method == "POST":
         form = FormCadastro(request.POST)
         if form.is_valid():
@@ -61,9 +63,9 @@ def cadastro(request):
             var_last_name = form.cleaned_data['last_name']
             var_user = form.cleaned_data['user']
             var_email = form.cleaned_data['email']
-            var_senha = form.cleaned_data['senha']
+            var_password = form.cleaned_data['password']
         
-            user = usuario.objects.create_user(username=var_user, email=var_email, senha=var_senha)
+            user = User.objects.create_user(username=var_user, email=var_email, password=var_password)
             user.first_name = var_first_name
             user.last_name = var_last_name
             user.save()
@@ -75,6 +77,20 @@ def cadastro(request):
 
     return render(request, "cadastro.html", {"form": form})
 
+def login_user(request):
+    form = FormLogin(request.POST)
+    if form.is_valid():
+        
+        var_user = form.cleaned_data['user']
+        var_password = form.cleaned_data['password']
+        
+        user = authenticate(username=var_user, password=var_password)
+        print(user)
+        return HttpResponse("<h1>Login feito com sucesso!</h1>")
+    else:
+        form = FormLogin()
+        
+    return render(request, "login.html", {"form": form})
 
 def reservar(request):
     if request.method == "POST":
